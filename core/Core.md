@@ -9,6 +9,7 @@ Core 模块是 Asgard 项目的核心基础设施层，提供了系统配置、�
 | 模块 | 说明 | 文档链接 |
 |------|------|----------|
 | SystemConfig | 系统配置模块，提供 YAML 配置文件加载和管理功能 | [查看文档](./systemconfig/README.md) |
+| Logging | 日志模块，基于 Serilog 提供高性能日志记录 | [查看文档](./logging/README.md) |
 
 ## 快速开始
 
@@ -48,3 +49,7 @@ var config = YamlConfigLoader.LoadFromFile<AppConfig>("config.yaml");
 - Microsoft.Extensions.DependencyInjection
 - Microsoft.Extensions.Options
 - YamlDotNet
+- Serilog
+- Serilog.Sinks.Console
+- Serilog.Sinks.File
+- Serilog.Extensions.Logging
