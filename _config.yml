@@ -1,0 +1,39 @@
+# Jekyll 配置文件
+# 用于 GitHub Pages
+
+title: Asgard 框架
+description: 现代化的 .NET 框架，提供缓存、日志、消息队列等核心功能
+
+# 主题设置
+theme: jekyll-theme-cayman
+
+# 仓库信息
+repository: BenLampson/Asgard-Framework
+
+# 网站设置
+baseurl: ""
+url: "https://benlampson.github.io/Asgard-Framework"
+
+# 作者信息
+author:
+  name: Ben Lampson
+
+# 构建设置
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+
+# 插件
+gems:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 页面设置
+permalink: pretty
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
