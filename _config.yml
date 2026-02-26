@@ -5,10 +5,7 @@ title: Asgard 框架
 description: 现代化的 .NET 框架，提供缓存、日志、消息队列等核心功能
 
 # 主题设置
-theme: jekyll-theme-minimal-mistakes
-
-# 主题配置
-minimal_mistakes_skin: "air"
+theme: jekyll-theme-slate
 
 # 导航菜单
 header_pages:
