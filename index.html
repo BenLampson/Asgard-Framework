@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asgard 框架</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        .description {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+        .nav {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .nav h2 {
+            margin-top: 0;
+        }
+        .nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .nav li {
+            margin: 10px 0;
+        }
+        .nav a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        code {
+            background: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Asgard 框架</h1>
+        <p class="description">现代化的 .NET 框架，提供缓存、日志、消息队列等核心功能</p>
+    </header>
+
+    <div class="nav">
+        <h2>导航</h2>
+        <ul>
+            <li><a href="./">首页</a></li>
+            <li><a href="./core/Core.md">核心模块</a></li>
+            <li>  <a href="./core/caching/README.md">缓存模块</a></li>
+            <li>  <a href="./core/logging/README.md">日志模块</a></li>
+            <li>  <a href="./core/systemconfig/README.md">系统配置模块</a></li>
+        </ul>
+    </div>
+
+    <section>
+        <h2>框架简介</h2>
+        <p>Asgard 是一个现代化的 .NET 框架，提供了一系列核心功能和工具，帮助开发者快速构建可靠、高性能的应用程序。</p>
+        <p>Asgard 框架设计理念注重模块化、可扩展性和易用性，为开发者提供了一套完整的解决方案，涵盖了应用程序开发中的常见需求。</p>
+    </section>
+
+    <section>
+        <h2>核心模块</h2>
+        <h3>1. 缓存模块 (Caching)</h3>
+        <ul>
+            <li>多级缓存支持</li>
+            <li>内存缓存和 Redis 缓存集成</li>
+            <li>灵活的缓存配置选项</li>
+        </ul>
+
+        <h3>2. 日志模块 (Logging)</h3>
+        <ul>
+            <li>基于 Serilog 的日志实现</li>
+            <li>多 sink 支持（控制台、文件等）</li>
+            <li>可配置的日志级别和格式</li>
+        </ul>
+
+        <h3>3. 系统配置模块 (SystemConfig)</h3>
+        <ul>
+            <li>YAML 配置文件支持</li>
+            <li>强类型配置对象</li>
+            <li>配置热加载能力</li>
+        </ul>
+
+        <h3>4. 消息队列模块 (Messaging)</h3>
+        <ul>
+            <li>支持 Kafka 和 RabbitMQ</li>
+            <li>延迟消息处理</li>
+            <li>死信队列和重试机制</li>
+            <li>消息追踪功能</li>
+        </ul>
+
+        <h3>5. 任务调度模块 (Job)</h3>
+        <ul>
+            <li>基于 Quartz.NET 的任务调度</li>
+            <li>灵活的触发器配置</li>
+            <li>任务执行监控和管理</li>
+        </ul>
+
+        <h3>6. 插件系统 (Plugin)</h3>
+        <ul>
+            <li>动态插件加载</li>
+            <li>插件依赖管理</li>
+            <li>插件生命周期控制</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>快速开始</h2>
+        <h3>1. 安装依赖</h3>
+        <pre><code>dotnet add package Asgard.Core
+dotnet add package Asgard.Abstract
+dotnet add package Asgard.Tools</code></pre>
+
+        <h3>2. 配置和使用</h3>
+        <p>在 <code>Program.cs</code> 中注册 Asgard 服务：</p>
+        <pre><code>var builder = WebApplication.CreateBuilder(args);
+
+// 注册 Asgard 服务
+builder.Services.AddAsgardCore();
+builder.Services.AddAsgardLogging();
+builder.Services.AddAsgardCaching();
+builder.Services.AddAsgardMessaging();
+builder.Services.AddAsgardJobs();
+builder.Services.AddAsgardPlugins();
+
+var app = builder.Build();
+
+// 使用 Asgard 中间件
+app.UseAsgard();
+
+app.Run();</code></pre>
+    </section>
+
+    <footer>
+        <p>Asgard 框架 - MIT 许可证</p>
+    </footer>
+</body>
+</html>
